@@ -10,9 +10,8 @@ export const Form = () => {
 	} = useForm();
 
 	const onSubmit = data => {
-		console.log('data: ', data);
+		console.log(data);
 	};
-	console.log('errors: ', errors);
 
 	return (
 		<form className={_.form} onSubmit={handleSubmit(onSubmit)}>
@@ -61,7 +60,9 @@ export const Form = () => {
 					aria-invalid={!!errors.password}
 				/>
 
-				{errors.password && <p className={_.error}>{errors.password.message}</p>}
+				{errors.password && (
+					<p className={_.error}>{errors.password.message}</p>
+				)}
 			</div>
 
 			<div className={_.wrapCheckbox}>
@@ -83,47 +84,3 @@ export const Form = () => {
 		</form>
 	);
 };
-
-//const [email, setEmail] = useState('');
-// const [emailError, setEmailError] = useState(false);
-// const [emailDirty, setEmailDirty] = useState(false);
-// const [password, setPassword] = useState('');
-// const [passwordError, setPasswordError] = useState(false);
-// const [passwordDirty, setPasswordDirty] = useState(false);
-// const [checkErrorForm, setCheckErrorForm] = useState(false);
-// const [save, setSave] = useState(false);
-// const [isPending, setIsPending] = useState(false);
-
-// const validEmail = value => {
-// 	setEmailError(/^.+@.+\..+$/.test(value));
-// };
-
-// const handleEmail = ({ target }) => {
-// 	setEmail(target.value);
-// 	validEmail(target.value);
-// };
-
-// const validPassword = value => {
-// 	setPasswordError(
-// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,}/.test(value)
-// 	);
-// };
-// const handlePassword = ({ target }) => {
-// 	setPassword(target.value);
-// 	validPassword(target.value);
-// };
-
-// const handleSubmit = e => {
-// 	e.preventDefault();
-
-// 	if (!emailError | !passwordError) {
-// 		setCheckErrorForm(true);
-// 		return;
-// 	}
-// 	setIsPending(true);
-// 	console.log('email, password, save ', { email, password, save });
-// };
-
-// const handleSave = ({ target }) => {
-// 	setSave(target.checked);
-// };
