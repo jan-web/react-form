@@ -51,7 +51,7 @@ export const Form = () => {
 						},
 						pattern: {
 							value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,}/,
-							message: 'Неверный email',
+							message: 'Неверный пароль',
 						},
 					})}
 					className={_.input}
